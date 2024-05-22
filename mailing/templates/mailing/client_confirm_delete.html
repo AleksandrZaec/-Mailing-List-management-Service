@@ -1,4 +1,4 @@
-{% extends 'mail/base.html' %}
+{% extends 'mailing/base.html' %}
 
 {% block content %}
     <div class="col-12">
@@ -8,9 +8,9 @@
                     <div class="card-body">
                         <form method="post">
                             {% csrf_token %}
-                            <p>Хотите удалить запись в блоге"{{ object.title }}"?</p>
+                            <p>Хотите удалить клиента "{{ object.name }}"?</p>
                             <button type="submit" class="btn btn-danger">Подтвердить</button>
-                            <a href="{% url 'blog:blog_list' %}" class="btn btn-warning">Отмена</a>
+                            <a href="{% url 'mailing:clients' %}" class="btn btn-warning">Отмена</a>
                         </form>
                     </div>
                 </div>

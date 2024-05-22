@@ -1,8 +1,8 @@
-{% extends 'mail/base.html' %}
+{% extends 'mailing/base.html' %}
 {% block content %}
 
     <div class="col-3 mb-5">
-        <a class="btn btn-outline-primary" href={% url 'blog:blog_create' %}>Добавить запись</a>
+        <a class="btn btn-outline-primary" href={% url 'mailing:create' %}>Добавить рассылку</a>
     </div>
 
     <div class="container">
@@ -12,25 +12,22 @@
                 <div class="col-4">
                     <div class="card mb-4 box-shadow">
                         <div class="card-body">
-                            <h5 class="card-title">{{ object.title }}</h5>
-                            <p class="card-text">{{ object.content }}</p>
-                            <p class="card-text">{{ object.image }}</p>
-                            <p class="card-text">Просмотры: {{ object.views_count }}</p>
+                            <h5 class="card-title">{{ object.name }}</h5>
                         </div>
 
                         <div class="btn-group">
-                            <a href="{% url 'blog:blog_view' object.pk %}"
+                            <a href="{% url 'mailing:view' object.pk %}"
                                class="btn btn-sm btn-outline-secondary">View</a>
-                            <a href="{% url 'blog:blog_edit' object.pk %}"
+                            <a href="{% url 'mailing:edit' object.pk %}"
                                class="btn btn-sm btn-outline-secondary">Edit</a>
-                            <a href="{% url 'blog:blog_delete' object.pk %}"
+                            <a href="{% url 'mailing:delete' object.pk %}"
                                class="btn btn-sm btn-outline-danger">Delete</a>
                         </div>
+
                     </div>
                 </div>
             {% endfor %}
 
         </div>
     </div>
-
 {% endblock %}

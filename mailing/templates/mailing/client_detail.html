@@ -1,0 +1,17 @@
+{% extends 'mailing/base.html' %}
+
+{% block content %}
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6">
+                <div class="header" style="width: 50rem;">
+                    <div class="card-body">
+                        <h2 class="card-title">ФИО: {{ object.name }}</h2>
+                        <h5 class="card-title">Email: {{ object.email }}</h5>
+                        <p class="card-text">Комментарий: {{ object.commentary }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+
+    <div class="col-4">
+        <h5 class="card-title">Всего рассылок в сервисе - {{ mailings_count }}</h5>
+        <h5 class="card-title">Всего активных рассылок - {{ active_mailings_count }}</h5>
+        <h5 class="card-title">Число уникальных клиентов - {{ clients_count }}</h5>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+        {% if user.is_authenticated %}
+            {% for blog in blog_list %}
+                <div class="col-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ blog.title }}</h5>
+                            <p class="card-text">{{ blog.content }}</p>
+                            <p class="card-text">{{ blog.image }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+
+        {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}
