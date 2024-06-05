@@ -10,7 +10,6 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ object.name }}</h5>
                             <p class="card-text">E-mail: {{ object.email }}</p>
-
                             {% if not object.is_active %}
                                 <p class="card-text">Заблокирован</p>
                             {% else %}

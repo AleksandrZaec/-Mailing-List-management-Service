@@ -86,8 +86,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': os.getenv('BD_HOST'),
+        'PORT': os.getenv('BD_PORT'),
         'PASSWORD': os.getenv('DB_PASSWORD')
     }
 }
@@ -159,7 +159,7 @@ EMAIL_USE_SSL = False
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-CACHE_ENABLED = os.getenv('CACHE_ENABLED') == True
+CACHE_ENABLED = os.getenv('CACHE_ENABLED')
 
 if CACHE_ENABLED:
     CACHES = {

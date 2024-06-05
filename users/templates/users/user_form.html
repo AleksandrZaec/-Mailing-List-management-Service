@@ -15,6 +15,11 @@
                             </div>
                             <div class="card-body">
                                 {% csrf_token %}
+                                {% if user.profile.avatar %}
+                                    <div class="mb-3">
+                                        <img src="{{ user.profile.avatar.url }}" alt="Аватар" class="img-fluid rounded-circle mb-3" style="max-width: 150px;">
+                                    </div>
+                                {% endif %}
                                 {{ form.as_p }}
                                 <button type="submit" class="btn btn-primary">Сохранить</button>
                             </div>

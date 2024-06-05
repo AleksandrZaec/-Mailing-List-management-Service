@@ -37,7 +37,9 @@ class Client(models.Model):
     class Meta:
         verbose_name = 'клиент'
         verbose_name_plural = 'клиенты'
-
+        permissions = [
+            ("set_active", "Can deactivate mailing")
+        ]
 
 class Message(models.Model):
     topic = models.CharField(max_length=250, verbose_name='тема')
@@ -50,7 +52,9 @@ class Message(models.Model):
     class Meta:
         verbose_name = 'сообщение'
         verbose_name_plural = 'сообщения'
-
+        permissions = [
+            ("set_active", "Can deactivate mailing")
+        ]
 
 class Mailing(models.Model):
     name = models.CharField(max_length=50, verbose_name='Наименование')
@@ -71,7 +75,9 @@ class Mailing(models.Model):
         verbose_name = 'рассылка'
         verbose_name_plural = 'рассылки'
         ordering = ('start_date',)
-
+        permissions = [
+            ("set_active", "Can deactivate mailing")
+        ]
 
 class Logs(models.Model):
     mailing = models.ForeignKey(Mailing, on_delete=models.CASCADE, verbose_name='Рассылка', **NULLABLE)

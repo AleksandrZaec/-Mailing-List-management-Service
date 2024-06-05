@@ -8,22 +8,22 @@
     <div class="container">
         <div class="row">
 
-            {% for object in object_list %}
+            {% for client in object_list %}
                 <div class="col-4">
                     <div class="card mb-4 box-shadow">
                         <div class="card-body">
-                            <h5 class="card-title">{{ object.name }}</h5>
-                            <p class="card-text">E-mail: {{ object.email }}</p>
-                            <p class="card-text">Комментарий: {{ object.commentary }}</p>
+                            <h5 class="card-title">{{ client.name }}</h5>
+                            <p class="card-text">E-mail: {{ client.email }}</p>
+                            <p class="card-text">Комментарий: {{ client.commentary }}</p>
                         </div>
 
                         <div class="btn-group">
-                            <a href="{% url 'mailing:clients_view' object.pk %}"
+                            <a href="{% url 'mailing:clients_view' client.pk %}"
                                class="btn btn-sm btn-outline-secondary">View</a>
-                            {% if user == object.owner or user.is_superuser %}
-                                <a href="{% url 'mailing:clients_edit' object.pk %}"
+                            {% if user == client.owner or user.is_superuser %}
+                                <a href="{% url 'mailing:clients_edit' client.pk %}"
                                    class="btn btn-sm btn-outline-secondary">Edit</a>
-                                <a href="{% url 'mailing:clients_delete' object.pk %}"
+                                <a href="{% url 'mailing:clients_delete' client.pk %}"
                                    class="btn btn-sm btn-outline-danger">Delete</a>
                             {% endif %}
                         </div>

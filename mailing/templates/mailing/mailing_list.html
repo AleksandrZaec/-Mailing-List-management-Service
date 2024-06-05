@@ -18,10 +18,13 @@
                         <div class="btn-group">
                             <a href="{% url 'mailing:view' object.pk %}"
                                class="btn btn-sm btn-outline-secondary">View</a>
-                            <a href="{% url 'mailing:edit' object.pk %}"
-                               class="btn btn-sm btn-outline-secondary">Edit</a>
-                            <a href="{% url 'mailing:delete' object.pk %}"
-                               class="btn btn-sm btn-outline-danger">Delete</a>
+                            {% if user.is_superuser or object.owner == user %}
+                                <!-- Если пользователь администратор или объект принадлежит ему -->
+                                <a href="{% url 'mailing:edit' object.pk %}"
+                                   class="btn btn-sm btn-outline-secondary">Edit</a>
+                                <a href="{% url 'mailing:delete' object.pk %}"
+                                   class="btn btn-sm btn-outline-danger">Delete</a>
+                            {% endif %}
                         </div>
 
                     </div>

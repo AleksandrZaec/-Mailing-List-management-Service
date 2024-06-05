@@ -17,7 +17,11 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ blog.title }}</h5>
                             <p class="card-text">{{ blog.content }}</p>
-                            <p class="card-text">{{ blog.image }}</p>
+                            {% if blog.image %}
+                                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid mb-3">
+                            {% else %}
+                                <p class="card-text">Изображение не предоставлено</p>
+                             {% endif %}
                         </div>
                     </div>
                 </div>
